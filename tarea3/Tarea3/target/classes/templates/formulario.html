@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: encabezado"></head>
+<body>
+
+<div class="container">
+    <h1>Formulario Árbol</h1>
+    <form th:action="@{/guardar}" th:object="${arbol}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        
+        <div class="mb-3">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" th:field="*{nombre}" />
+        </div>
+
+        <div class="mb-3">
+            <label>Tipo de Flor:</label>
+            <input type="text" class="form-control" th:field="*{tipoFlor}" />
+        </div>
+
+        <div class="mb-3">
+            <label>Dureza Madera:</label>
+            <input type="text" class="form-control" th:field="*{durezaMadera}" />
+        </div>
+
+        <div class="mb-3">
+            <label>Altura:</label>
+            <input type="number" step="0.01" class="form-control" th:field="*{altura}" />
+        </div>
+
+        <div class="mb-3">
+            <label>Ruta Imagen:</label>
+            <input type="text" class="form-control" th:field="*{imagen}" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a th:href="@{/}" class="btn btn-secondary">Regresar</a>
+    </form>
+</div>
+
+<footer th:replace="fragments :: pie"></footer>
+</body>
+</html>
